@@ -71,7 +71,7 @@
             color: #f2f2f2;
         }
         .btn-share {
-            width: 64%;
+            width: 300px;
             height: 0.89rem;
             background-color: #3baaff;
             border-radius: 0.89rem;
@@ -79,6 +79,8 @@
             color: white;
             font-size: 0.36rem;
             margin: 0.75rem 0 0.67rem;
+            margin-bottom: 200px;
+            float: right;
         }
         .btn-share:active{
             background-color: #1b96c8;
@@ -132,21 +134,21 @@ $(function(){
             });
         },
         downloadPPT:function(){
-        	/* $.ajax({
-        		url:'http://localhost:8080/pptController/toDownloadppt',
+        	 $.ajax({
+        		url:'http://localhost:8080/pptController/addImageToPPT',
         		type : 'post',
-                dataType : 'xml',
+                dataType : 'text',
                 contentType: "application/json; charset=utf-8",
                 async : false,
         		data:JSON.stringify(base64List),
         		error:function (e){
-        		alert("导出失败！");
+        			alert("导出失败！");
         		},
         		success:function (data){
-        		alert(data);
+        			location.href = 'http://localhost:8080/pptController/toDownloadppt?fileName='+data;
         		} 
-        		});  */
-        	location.href = 'http://localhost:8080/pptController/toDownloadppt?base64List='+JSON.stringify(base64List); 
+        		});      	 
+
         },
         //绘制dom 元素，生成截图canvas
         html2Canvas: function (shareContent) {
